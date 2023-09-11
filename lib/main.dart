@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:visual_novel/src/widgets/vn_image.dart';
 import 'package:visual_novel/src/scene.dart';
+import 'package:visual_novel/src/stage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +44,19 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scene();
+    return Scaffold(
+      body: Stage(
+        backgroundImages: [
+          VnImage(
+            fillColor: Colors.amber.withAlpha(100),
+            assetName: 'images/seamless.png',
+            repeat: ImageRepeat.repeat,
+            blurSigma: 10,
+            overlayColor: Colors.amber.withAlpha(100),
+          ),
+        ],
+        scene: Scene(),
+      ),
+    );
   }
 }
-
